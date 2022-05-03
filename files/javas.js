@@ -11,20 +11,17 @@ function hoursFunc() {
     let m = date.getMinutes()
     let s = date.getSeconds()
 
-    let all = `${h}:${m}:${s}`
+    let all = `${fixZero(h)}:${fixZero(m)}:${fixZero(s)}`
 
     c('.hours-opened').innerHTML = all
 
-    if ( m  < 10 ) {
-        c('.hours-opened').innerHTML = `${h}:0${m}:${s}`  
-    }
+}
 
-    if ( s < 10 ) {
-        c('.hours-opened').innerHTML = `${h}:${m}:0${s}`  
-    }
-
-    if ( m < 10 && s < 10) {
-        c('.hours-opened').innerHTML = `${h}:0${m}:0${s}`  
+function fixZero(time) {
+    if (time < 10) {
+        return '0'+time
+    } else {
+        return time
     }
 }
 
