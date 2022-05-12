@@ -28,11 +28,13 @@ function fixZero(time) {
 let timer = setInterval(hoursFunc, 1)
 
 btn.addEventListener('click', () => {
+    c('#modal1').style.opacity = '1'
+
     c('.button').style.opacity = 1
         setTimeout ( () =>{
             c('.button').style.display = 'none'
             c('.button').style.opacity = 0
-        }),1
+        },1)
 
         if ( c('#modal1').style.display = 'none' ) {
             c('#modal1').style.display = 'flex'
@@ -83,19 +85,21 @@ btn2.addEventListener('click', () => {
         setTimeout ( () =>{
             c('.button').style.display = 'flex'
             c('.button').style.opacity = 1
-        }),1
+        },100)
 
+        c('#modal1').style.opacity = '0'
+
+    setTimeout ( () => {
         c('.modal-opened').style.backgroundColor = "rgba(0, 0, 0, 0.0)"
         c('.modal-opened').style.transition = "0.3s";
+        c('#modal1').style.display = 'none'
+        c('#modal1').classList.remove('modal-opened')
+        c('#modal1').classList.remove('modal')
+        c('.hours').classList.remove('hours-opened')
+        c('.button2').classList.remove('button2-opened')
+        c('.button2 ').style.display = 'none'
+    },100)
 
-        setTimeout ( () => {
-            c('#modal1').style.display = 'none'
-        },300)
-    c('#modal1').classList.remove('modal-opened')
-    c('#modal1').classList.remove('modal')
-    c('.hours').classList.remove('hours-opened')
-    c('.button2').classList.remove('button2-opened')
-    c('.button2 ').style.display = 'none'
 })
 
 let count = 1
